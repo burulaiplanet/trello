@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState={
     email:'b@gmail.com',
     password:'1',
-    datas:[]
+   
 }
 const loginSlice=createSlice({
     name:'login',

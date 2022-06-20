@@ -8,7 +8,8 @@ const Div = styled.div`
   width: 280px;
   height: 100px;
   background-color: white;
-  margin: 50px;
+  /* margin: 50px; */
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,12 +61,12 @@ export const AddColumn = () => {
     });
   };
   const addHandler = () => {
-    dispatch(columnActions.addColumn(columnName));
-
-    dispatch(uiActions.showColumn());
     if (columnName.title.trim().length === 0) {
       return;
     }
+    dispatch(columnActions.addColumn(columnName));
+    
+    dispatch(uiActions.showColumn());
   };
 
   const showColumn = () => {
@@ -79,6 +80,7 @@ export const AddColumn = () => {
         placeholder="Вывести зоголовок списка"
         onChange={columnNameHandler}
         value={columnName.title}
+        autoFocus
       />
       <div>
         <button className="add" onClick={addHandler}>

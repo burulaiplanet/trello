@@ -10,7 +10,7 @@ const Div = styled.div`
     background-color: white;
     opacity: 0.6;
     padding: 10px;
-    margin: 50px;
+    margin-left: 10px;
     color: rgb(2, 106, 167);
     align-items: center;
     font-weight: bold;

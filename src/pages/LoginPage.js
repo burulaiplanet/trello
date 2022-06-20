@@ -6,6 +6,8 @@ import { SpinnerCircular } from "spinners-react";
 import { spinnerActions } from "../store/slices/spinnerSlice";
 import ToDos from "./ToDos";
 import { Route } from "react-router-dom";
+import { uiActions } from "../store/slices/uiSlices";
+import { Overlay } from "./ModalWindow";
 
 const FormClasses = styled.div`
   margin: 100px auto;
@@ -92,6 +94,7 @@ const LoginPage = () => {
   const emailData = useSelector((state) => state.login);
   const passwordData = useSelector((state) => state.login);
   const store = useSelector((state) => state.spinner.isValid);
+  const valid = useSelector((state) => state.uiSlice.valid);
 
   const [formIsValid, setFormISValid] = useState(false);
   const linkRef = useRef();
@@ -122,14 +125,11 @@ const LoginPage = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    dispatc(spinnerActions.spinnerHandler());
     setTimeout(() => {
       dispatc(spinnerActions.spinnerHandler());
-      linkRef.current.click();
-      <Link ref={linkRef} to="/ToDos">
-        {" "}
-      </Link>;
+      dispatc(uiActions.onValidorOff());
     }, 2000);
-    dispatc(spinnerActions.spinnerHandler());
   };
 
   return (
@@ -162,13 +162,15 @@ const LoginPage = () => {
         </div>
       </form>
       {store && (
-        <SpinnerCircular
-          size={50}
-          thickness={100}
-          speed={100}
-          color="rgba(0, 121, 191, 1)"
-          secondaryColor="rgba(0, 0, 0, 0.44)"
-        />
+        <Overlay>
+          <SpinnerCircular
+            size={50}
+            thickness={100}
+            speed={100}
+            color="white"
+            secondaryColor="rgba(0, 0, 0, 0.44)"
+          />
+        </Overlay>
       )}
     </FormClasses>
   );

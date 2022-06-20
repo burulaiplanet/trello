@@ -9,6 +9,9 @@ const BackDrop = styled.div`
   height: 100vh;
   background: rgba(0, 0, 0, 0.7);
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Modal = styled.div`
   position: fixed;
@@ -71,8 +74,8 @@ const Exit = styled.div`
   font-weight: 600;
   cursor: pointer;
 `;
-const Overlay = ({ onHideModal }) => {
-  return <BackDrop onClick={onHideModal}> </BackDrop>;
+export const Overlay = (props) => {
+  return <BackDrop onClick={props.onHideModal}> {props.children}</BackDrop>;
 };
 const ModalOverlay = ({ onHideModal, title }) => {
   console.log(onHideModal);

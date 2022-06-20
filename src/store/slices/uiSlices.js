@@ -2,8 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
  const initialState={
     showColumn: true,
-    
-   
+    valid: false
  }
 
  const uiSlice=createSlice({
@@ -13,8 +12,11 @@ import { createSlice } from "@reduxjs/toolkit"
         showColumn(state) {
 			state.showColumn = !state.showColumn
 		},
-     
-    }
+      onValidorOff(state){
+         state.valid = !state.valid;
+      }
+    },
+    
  })
 
  export const uiActions=uiSlice.actions

@@ -7,6 +7,8 @@ const Header = styled.header`
   background-color: white;
   opacity: 0.8;
   width: 100%;
+  position: fixed;
+  z-index: 100;
 
   > nav {
     display: flex;

@@ -19,8 +19,13 @@ const GlobalStyle = createGlobalStyle`
 }
 .columns{
 	display: flex;
-	overflow-x:scroll;
+	overflow-x:auto;
 	white-space:nowrap;
+  min-height: 100vh;
+  /* border: 1px solid red; */
+  z-index: 1;
+  position: relative;
+  padding-top: 100px; 
 	}
 `;
 

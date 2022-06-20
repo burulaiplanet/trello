@@ -7,7 +7,8 @@ import { ToDoLists } from "./ToDoLIsts";
 
 const Container = styled.div`
   background-color: rgb(235, 236, 240);
-  margin: 50px;
+  /* margin: 50px; */
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,6 +23,7 @@ const Div = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
+  /* border: 1px solid red; */
 `;
 
 export const TodoList = (props) => {
