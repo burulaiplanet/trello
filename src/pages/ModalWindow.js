@@ -8,7 +8,7 @@ const BackDrop = styled.div`
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 1;
+  z-index: 101;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,6 +80,7 @@ export const Overlay = (props) => {
 const ModalOverlay = ({ onHideModal, title }) => {
   console.log(onHideModal);
   return (
+    <Overlay>
     <Modal>
       <Div>
         <h4>{title}</h4>
@@ -92,6 +93,7 @@ const ModalOverlay = ({ onHideModal, title }) => {
         <Сancellation onClick={onHideModal}>Отмена</Сancellation>
       </div>
     </Modal>
+    </Overlay>
   );
 };
 
@@ -102,6 +104,7 @@ export const ModalWindow = (props) => {
         <Overlay onHideModal={props.onHideModal} />,
         document.getElementById("overlay")
       )}
+      
       {ReactDOM.createPortal(
         <ModalOverlay title={props.title} onHideModal={props.onHideModal} />,
 
